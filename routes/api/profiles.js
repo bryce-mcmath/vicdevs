@@ -16,12 +16,15 @@ router.get('/me', auth, async (req, res) => {
     }).populate('user', ['firstName', 'lastName', 'avatar']);
 
     if (!profile) {
+      // Status Code 400: Bad Request
       return res.status(400).json({ msg: 'There is no profile for this user' });
     }
 
     res.json(profile);
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -44,6 +47,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      // Status Code 400: Bad Request
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -103,6 +107,8 @@ router.post(
       res.json(profile);
     } catch (error) {
       console.error(error.message);
+
+      // Status Code 500: Internal Server Error
       res.status(500).send('Server error');
     }
   }
@@ -120,6 +126,8 @@ router.get('/', async (req, res) => {
     res.json(profiles);
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -131,13 +139,17 @@ router.get('/user/:user_id', async (req, res) => {
     const profile = await Profile.findOne({
       user: req.params.user_id
     }).populate('user', ['firstName', 'lastName', 'avatar']);
+    // Status Code 400: Bad Request
     if (!profile) return res.status(400).json({ msg: 'Profile not found' });
     res.json(profile);
   } catch (error) {
     console.error(error.message);
     if (error.kind == 'ObjectId') {
+      // Status Code 400: Bad Request
       return res.status(400).json({ msg: 'Profile not found' });
     }
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -156,6 +168,8 @@ router.get('/', auth, async (req, res) => {
     res.json({ msg: 'Account deleted' });
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -181,6 +195,7 @@ router.put(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      // Status Code 400: Bad Request
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -214,6 +229,8 @@ router.put(
       res.json(profile);
     } catch (error) {
       console.error(error.message);
+
+      // Status Code 500: Internal Server Error
       res.status(500).send('Server error');
     }
   }
@@ -236,6 +253,8 @@ router.delete('/experience/:exp_id', auth, async (req, res) => {
     res.json(profile);
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -264,6 +283,7 @@ router.put(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      // Status Code 400: Bad Request
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -297,6 +317,8 @@ router.put(
       res.json(profile);
     } catch (error) {
       console.error(error.message);
+
+      // Status Code 500: Internal Server Error
       res.status(500).send('Server error');
     }
   }
@@ -319,6 +341,8 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     res.json(profile);
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -341,6 +365,7 @@ router.get('/github/:username', (req, res) => {
       if (error) console.error(error.message);
 
       if (response.statusCode !== 200) {
+        // Status Code 404: Not Found
         return res.status(404).json({ msg: 'No starred repos found' });
       }
       console.log(body);
@@ -348,6 +373,8 @@ router.get('/github/:username', (req, res) => {
     });
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     return res.status(500).send('Server error');
   }
 });

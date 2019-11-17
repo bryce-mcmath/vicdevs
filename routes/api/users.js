@@ -27,6 +27,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      // Status Code 400: Bad Request
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -37,9 +38,12 @@ router.post(
 
       // Check if email is taken
       if (user) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'That email has already been taken' }] });
+        return (
+          res
+            // Status Code 400: Bad Request
+            .status(400)
+            .json({ errors: [{ msg: 'That email has already been taken' }] })
+        );
       }
 
       // Set avatar, use default if gravatar doesn't exist
@@ -82,6 +86,8 @@ router.post(
       );
     } catch (error) {
       console.error(error.message);
+
+      // Status Code 500: Internal Server Error
       res.status(500).send('Server error');
     }
   }

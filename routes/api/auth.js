@@ -14,6 +14,8 @@ router.get('/', auth, async (req, res) => {
     res.json(user);
   } catch (error) {
     console.error(error.message);
+
+    // Status Code 500: Internal Server Error
     res.status(500).send('Server error');
   }
 });
@@ -29,6 +31,7 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      // Status Code 400: Bad Request
       return res.status(400).json({ errors: errors.array() });
     }
 
@@ -39,9 +42,12 @@ router.post(
 
       // Check if email is associated with an account
       if (!user) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'Invalid credentials' }] });
+        return (
+          res
+            // Status Code 400: Bad Request
+            .status(400)
+            .json({ errors: [{ msg: 'Invalid credentials' }] })
+        );
       }
 
       // Compare entered password with encrypted password in db
@@ -49,9 +55,12 @@ router.post(
 
       // Return error if password is incorrect
       if (!isMatch) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'Invalid credentials' }] });
+        return (
+          res
+            // Status Code 400: Bad Request
+            .status(400)
+            .json({ errors: [{ msg: 'Invalid credentials' }] })
+        );
       }
 
       // Create payload
@@ -73,6 +82,8 @@ router.post(
       );
     } catch (error) {
       console.error(error.message);
+
+      // Status Code 500: Internal Server Error
       res.status(500).send('Server error');
     }
   }
