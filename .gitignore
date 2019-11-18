@@ -4,3 +4,8 @@ node_modules
 # API keys, secrets, URIs
 config/default.json
 config/production.json
+
+# parcel
+.cache
+dist
+
