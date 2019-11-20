@@ -1,9 +1,13 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const helmet = require('helmet');
 const app = express();
 
 // Connect to database
 connectDB();
+
+// Initialize Helmet
+app.use(helmet());
 
 // Initialize middleware
 app.use(express.json({ extended: false }));

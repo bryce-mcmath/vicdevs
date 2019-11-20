@@ -9,3 +9,5 @@ config/production.json
 .cache
 dist
 
+# sass
+scss

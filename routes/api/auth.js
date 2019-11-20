@@ -22,6 +22,8 @@ router.get('/', auth, async (req, res) => {
 
 // Public POST api/auth
 // Authenticate a user, get token
+// @TODO: add brute force protection
+// https://github.com/animir/node-rate-limiter-flexible/wiki/Overall-example#login-endpoint-protection
 router.post(
   '/',
   [
