@@ -1,16 +1,18 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const helmet = require('helmet');
+const xss = require('xss-clean');
 const app = express();
 
 // Connect to database
 connectDB();
 
-// Initialize Helmet
+// Initialize Helmet & xss-clean
 app.use(helmet());
+app.use(xss());
 
 // Initialize middleware
-app.use(express.json({ extended: false }));
+app.use(express.json({ extended: false, limit: '10kb' }));
 
 // Routes
 app.use('/api/users', require('./routes/api/users'));

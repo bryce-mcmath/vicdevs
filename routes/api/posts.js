@@ -4,13 +4,12 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const Post = require('../../models/Post');
 const User = require('../../models/User');
-const Profile = require('../../models/Profile');
 
 // Private GET api/posts
 // Get all posts
 router.get('/', auth, async (req, res) => {
   try {
-    // date: -1 parameter sorts by most recent
+    // sort posts by most recent
     const posts = await Post.find().sort({ date: -1 });
 
     res.json(posts);
@@ -24,10 +23,16 @@ router.get('/', auth, async (req, res) => {
 
 // Private GET api/posts/top
 // Get all posts sorted by most liked
-router.get('/', auth, async (req, res) => {
+router.get('/top', auth, async (req, res) => {
   try {
-    // likes: -1 parameter sorts by most likes
-    const posts = await Post.find().sort({ likes: -1 });
+    // compare function for sorting
+    const sortByLikes = (a, b) => {
+      return a.likes.length - b.likes.length;
+    };
+
+    // sort posts by most liked
+    const posts = await Post.find().sort(sortByLikes);
+
     res.json(posts);
   } catch (error) {
     console.error(error.message);
@@ -139,9 +144,9 @@ router.delete('/:id', auth, async (req, res) => {
   }
 });
 
-// Private PUT api/posts/like/:id
+// Private PUT api/posts/:id/like
 // Like a post
-router.put('/like/:id', auth, async (req, res) => {
+router.put('/:id/like', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -166,9 +171,9 @@ router.put('/like/:id', auth, async (req, res) => {
   }
 });
 
-// Private PUT api/posts/unlike/:id
+// Private PUT api/posts/:id/unlike
 // Unlike a post
-router.put('/unlike/:id', auth, async (req, res) => {
+router.put('/:id/unlike', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -199,10 +204,10 @@ router.put('/unlike/:id', auth, async (req, res) => {
   }
 });
 
-// Private POST api/posts/comment/:id
+// Private POST api/posts/:id/comment
 // Create a new comment
 router.post(
-  '/comment/:id',
+  '/:id/comment',
   [
     auth,
     [
@@ -244,9 +249,9 @@ router.post(
   }
 );
 
-// Private DELETE api/posts/comment/:id/:comment_id
+// Private DELETE api/posts/:id/comment/:comment_id
 // Delete a comment
-router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
+router.delete('/:id/comment/:comment_id', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -285,9 +290,9 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
   }
 });
 
-// Private PUT api/posts/comment/like/:id/:comment_id
+// Private PUT api/posts/:id/comment/:comment_id/like
 // Like a comment
-router.put('/comment/like/:id/:comment_id', auth, async (req, res) => {
+router.put('/:id/comment/:comment_id/like', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 
@@ -325,9 +330,9 @@ router.put('/comment/like/:id/:comment_id', auth, async (req, res) => {
   }
 });
 
-// Private PUT api/posts/comment/unlike/:id/:comment_id
+// Private PUT api/posts/:id/comment/:comment_id/unlike
 // Unlike a comment
-router.put('/comment/unlike/:id/:comment_id', auth, async (req, res) => {
+router.put('/:id/comment/:comment_id/unlike', auth, async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
 

@@ -13,7 +13,7 @@ router.get('/me', auth, async (req, res) => {
   try {
     const profile = await Profile.findOne({
       user: req.user.id
-    }).populate('user', ['firstName', 'lastName', 'avatar']);
+    }).populate('user', ['name', 'avatar']);
 
     if (!profile) {
       // Status Code 400: Bad Request
@@ -118,11 +118,7 @@ router.post(
 // Get all profiles
 router.get('/', async (req, res) => {
   try {
-    const profiles = await Profile.find().populate('user', [
-      'firstName',
-      'lastName',
-      'avatar'
-    ]);
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
     res.json(profiles);
   } catch (error) {
     console.error(error.message);

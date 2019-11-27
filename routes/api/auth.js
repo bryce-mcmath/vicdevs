@@ -6,6 +6,9 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
+const { rateLimiter } = require('');
+
+// Brute force protection using node-rate-limiter
 
 // Public GET api/auth
 router.get('/', auth, async (req, res) => {
