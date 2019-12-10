@@ -6,9 +6,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
-const { rateLimiter } = require('');
-
-// Brute force protection using node-rate-limiter
+// const mongoose = require('mongoose');
+// const { RateLimiterMongo } = require('rate-limiter-flexible');
 
 // Public GET api/auth
 router.get('/', auth, async (req, res) => {
@@ -26,7 +25,17 @@ router.get('/', auth, async (req, res) => {
 // Public POST api/auth
 // Authenticate a user, get token
 // @TODO: add brute force protection
-// https://github.com/animir/node-rate-limiter-flexible/wiki/Overall-example#login-endpoint-protection
+// https://github.com/animir/node-rate-limiter-flexible/wiki/Overall-example#minimal-protection-against-password-brute-force
+// const maxConsecFails = 5;
+// const mongoConn = mongoose.connection;
+// const limiterConsecFails = new RateLimiterMongo({
+//   storeClient: mongoConn,
+//   keyPrefix: 'login_fail_consecutive_username',
+//   points: maxConsecFails,
+//   duration: 60 * 60 * 0.5, // Store number for half an hour since first fail
+//   blockDuration: 60 * 15 // Block for fifteen minutes
+// });
+
 router.post(
   '/',
   [
