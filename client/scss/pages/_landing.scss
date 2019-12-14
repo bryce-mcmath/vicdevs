@@ -1,7 +1,10 @@
 .landing {
   position: relative;
-  background: url('./img/victoria.jpg') no-repeat center center/cover;
-  height: 100vh;
+  background: url("./img/victoria.jpg") no-repeat center center/cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .landing-inner {
