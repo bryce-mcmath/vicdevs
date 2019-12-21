@@ -1,29 +1,30 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const auth = require('../../middleware/auth');
-const User = require('../../models/User');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const config = require('config');
-const { check, validationResult } = require('express-validator');
+const auth = require("../../middleware/auth");
+const User = require("../../models/User");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const config = require("config");
+const { check, validationResult } = require("express-validator");
 // const mongoose = require('mongoose');
 // const { RateLimiterMongo } = require('rate-limiter-flexible');
 
 // Public GET api/auth
-router.get('/', auth, async (req, res) => {
+router.get("/", auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
+    const user = await User.findById(req.user.id).select("-password");
     res.json(user);
   } catch (error) {
     console.error(error.message);
 
     // Status Code 500: Internal Server Error
-    res.status(500).send('Server error');
+    res.status(500).send("Server error");
   }
 });
 
 // Public POST api/auth
 // Authenticate a user, get token
+
 // @TODO: add brute force protection
 // https://github.com/animir/node-rate-limiter-flexible/wiki/Overall-example#minimal-protection-against-password-brute-force
 // const maxConsecFails = 5;
@@ -37,10 +38,10 @@ router.get('/', auth, async (req, res) => {
 // });
 
 router.post(
-  '/',
+  "/",
   [
-    check('email', 'A valid email is required').isEmail(),
-    check('password', 'Password is required').exists()
+    check("email", "A valid email is required").isEmail(),
+    check("password", "Password is required").exists()
   ],
   async (req, res) => {
     const errors = validationResult(req);
@@ -60,7 +61,7 @@ router.post(
           res
             // Status Code 400: Bad Request
             .status(400)
-            .json({ errors: [{ msg: 'Invalid credentials' }] })
+            .json({ errors: [{ msg: "Invalid credentials" }] })
         );
       }
 
@@ -73,7 +74,7 @@ router.post(
           res
             // Status Code 400: Bad Request
             .status(400)
-            .json({ errors: [{ msg: 'Invalid credentials' }] })
+            .json({ errors: [{ msg: "Invalid credentials" }] })
         );
       }
 
@@ -87,7 +88,7 @@ router.post(
       // Return jsonwebtoken
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        config.get("jwtSecret"),
         { expiresIn: 36000 },
         (err, token) => {
           if (err) throw err;
@@ -98,7 +99,7 @@ router.post(
       console.error(error.message);
 
       // Status Code 500: Internal Server Error
-      res.status(500).send('Server error');
+      res.status(500).send("Server error");
     }
   }
 );
