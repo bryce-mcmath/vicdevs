@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getCurrentProfile } from "../../actions/profile";
+import DashboardActions from "./DashboardActions";
+import Experience from "./Experience";
+import Education from "./Education";
+import { getCurrentProfile, deleteAccount } from "../../actions/profile";
 
 const Dashboard = ({
   getCurrentProfile,
@@ -12,7 +15,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
   return loading && profile === null ? (
     <Spinner />
   ) : (
@@ -24,7 +27,17 @@ const Dashboard = ({
             <i className="fas fa-user" /> Welcome {user && user.name}
           </p>
           {profile !== null ? (
-            <Fragment>has</Fragment>
+            <Fragment>
+              <DashboardActions />
+              <Experience experience={profile.experience} />
+              <Education education={profile.education} />
+              <button
+                className="btn btn-danger"
+                onClick={() => deleteAccount()}
+              >
+                <i className="fas fa-user-minus" /> Delete My Account
+              </button>
+            </Fragment>
           ) : (
             <Fragment>
               <p>You have not yet setup your profile.</p>
@@ -50,4 +63,6 @@ const mapStateToProps = state => ({
   profile: state.profile
 });
 
-export default connect(mapStateToProps, { getCurrentProfile })(Dashboard);
+export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
+  Dashboard
+);
