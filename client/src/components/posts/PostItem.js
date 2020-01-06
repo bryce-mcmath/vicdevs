@@ -3,14 +3,14 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { connect } from "react-redux";
-import { addLike, removeLike, deletePost } from "../../actions/post";
+import { likePost, unlikePost, deletePost } from "../../actions/post";
 
 const PostItem = ({
-  addLike,
-  removeLike,
+  likePost,
+  unlikePost,
   deletePost,
   auth,
-  post: { _id, text, name, avatar, user, likes, comments, date },
+  post: { _id, title, text, name, avatar, user, likes, comments, date },
   showActions
 }) => (
   <div className="post bg-white">
@@ -21,6 +21,7 @@ const PostItem = ({
       </Link>
     </div>
     <div>
+      <h4 className="text-primary">{title}</h4>
       <p>{text}</p>
       <p className="post-date">
         Posted on <Moment format="YYYY/MM/DD">{date}</Moment>
@@ -29,7 +30,7 @@ const PostItem = ({
       {showActions && (
         <Fragment>
           <button
-            onClick={() => addLike(_id)}
+            onClick={() => likePost(_id)}
             type="button"
             className="btn btn-light"
           >
@@ -37,7 +38,7 @@ const PostItem = ({
             <span>{likes.length > 0 && <span>{likes.length}</span>}</span>
           </button>
           <button
-            onClick={() => removeLike(_id)}
+            onClick={() => unlikePost(_id)}
             type="button"
             className="btn btn-light"
           >
@@ -71,8 +72,8 @@ PostItem.defaultProps = {
 PostItem.propTypes = {
   post: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
-  addLike: PropTypes.func.isRequired,
-  removeLike: PropTypes.func.isRequired,
+  likePost: PropTypes.func.isRequired,
+  unlikePost: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
   showActions: PropTypes.bool
 };
@@ -81,6 +82,6 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { addLike, removeLike, deletePost })(
+export default connect(mapStateToProps, { likePost, unlikePost, deletePost })(
   PostItem
 );

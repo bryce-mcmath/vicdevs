@@ -106,7 +106,7 @@ export const likePost = id => async dispatch => {
   }
 };
 
-export const removePostLike = id => async dispatch => {
+export const unlikePost = id => async dispatch => {
   try {
     const res = await axios.put(`http://localhost:5000/api/posts/${id}/unlike`);
 
@@ -174,6 +174,24 @@ export const likeComment = (postId, commentId) => async dispatch => {
   try {
     const res = await axios.put(
       `http://localhost:5000/api/posts/${postId}/comment/${commentId}/like`
+    );
+
+    dispatch({
+      type: UPDATE_COMMENT_LIKES,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const unlikeComment = (postId, commentId) => async dispatch => {
+  try {
+    const res = await axios.put(
+      `http://localhost:5000/api/posts/${postId}/comment/${commentId}/unlike`
     );
 
     dispatch({

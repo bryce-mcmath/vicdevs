@@ -8,7 +8,7 @@ const CommentForm = ({ postId, addComment }) => {
 
   return (
     <div className="post-form">
-      <div className="bg-primary">
+      <div className="bg-primary p">
         <h3>Leave a Comment</h3>
       </div>
       <form
@@ -23,12 +23,12 @@ const CommentForm = ({ postId, addComment }) => {
           name="text"
           cols="30"
           rows="5"
-          placeholder="Comment the post"
+          placeholder="Write your comment here..."
           value={text}
           onChange={e => setText(e.target.value)}
           required
         />
-        <input type="submit" className="btn btn-dark" value="Submit" />
+        <input type="submit" className="btn btn-light" value="Submit" />
       </form>
     </div>
   );

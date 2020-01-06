@@ -13,7 +13,6 @@ const EditProfile = ({
   const [formData, setFormData] = useState({
     company: "",
     website: "",
-    location: "",
     status: "",
     skills: "",
     githubusername: "",
@@ -33,7 +32,6 @@ const EditProfile = ({
     setFormData({
       company: loading || !profile.company ? "" : profile.company,
       website: loading || !profile.website ? "" : profile.website,
-      location: loading || !profile.location ? "" : profile.location,
       status: loading || !profile.status ? "" : profile.status,
       skills: loading || !profile.skills ? "" : profile.skills.join(","),
       githubusername:
@@ -50,7 +48,6 @@ const EditProfile = ({
   const {
     company,
     website,
-    location,
     status,
     skills,
     githubusername,
@@ -120,18 +117,7 @@ const EditProfile = ({
                 Could be your own or a company website
               </small>
             </div>
-            <div className="form-group">
-              <input
-                type="text"
-                placeholder="Location"
-                name="location"
-                value={location}
-                onChange={e => onChange(e)}
-              />
-              <small className="form-text">
-                City & state suggested (eg. Boston, MA)
-              </small>
-            </div>
+
             <div className="form-group">
               <input
                 type="text"
@@ -236,11 +222,12 @@ const EditProfile = ({
                 </div>
               </Fragment>
             )}
-
-            <input type="submit" className="btn btn-primary" />
-            <Link className="btn btn-light" to="/dashboard">
-              Go Back
-            </Link>
+            <div className="tm">
+              <input type="submit" className="btn btn-primary" />
+              <Link className="btn btn-light" to="/dashboard">
+                Go Back
+              </Link>
+            </div>
           </form>
         </div>
       </div>

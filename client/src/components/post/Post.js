@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -30,7 +30,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
           </Link>
           <PostItem post={post} showActions={false} />
           <CommentForm postId={post._id} />
-          <div className="comments">
+          <div className="p">
             {post.comments.map(comment => (
               <CommentItem
                 key={comment._id}

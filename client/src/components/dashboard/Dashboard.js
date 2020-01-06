@@ -32,7 +32,7 @@ const Dashboard = ({
               <Experience experience={profile.experience} />
               <Education education={profile.education} />
               <button
-                className="btn btn-danger"
+                className="btn btn-danger tm"
                 onClick={() => deleteAccount()}
               >
                 <i className="fas fa-user-minus" /> Delete My Account
@@ -40,7 +40,7 @@ const Dashboard = ({
             </Fragment>
           ) : (
             <Fragment>
-              <p>You have not yet setup your profile.</p>
+              <p className="m">You have not yet setup your profile.</p>
               <Link to="/create-profile" className="btn btn-primary">
                 Create Profile
               </Link>

@@ -41,7 +41,7 @@ const Profile = ({
               <div className="profile-grid">
                 <ProfileTop profile={profile} />
                 <ProfileAbout profile={profile} />
-                <div className="profile-exp bg-white">
+                <div className="profile-exp bg-white p">
                   <h2 className="text-primary">Experience</h2>
                   {profile.experience.length > 0 ? (
                     <Fragment>
@@ -57,7 +57,7 @@ const Profile = ({
                   )}
                 </div>
 
-                <div className="profile-edu bg-white">
+                <div className="profile-edu bg-white p">
                   <h2 className="text-primary">Education</h2>
                   {profile.education.length > 0 ? (
                     <Fragment>

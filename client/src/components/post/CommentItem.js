@@ -12,12 +12,10 @@ const CommentItem = ({
   deleteComment
 }) => (
   <div className="post bg-white">
-    <div>
-      <Link to={`/profile/${user}`}>
-        <img className="round-img" src={avatar} alt="" />
-        <h4>{name}</h4>
-      </Link>
-    </div>
+    <Link to={`/profile/${user}`}>
+      <img className="round-img hide-sm" src={avatar} alt="" />
+      <h4 className="primary-text">{name}</h4>
+    </Link>
     <div>
       <p>{text}</p>
       <p className="post-date">

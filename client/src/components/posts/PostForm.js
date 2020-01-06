@@ -4,29 +4,38 @@ import { connect } from "react-redux";
 import { addPost } from "../../actions/post";
 
 const PostForm = ({ addPost }) => {
+  const [title, setTitle] = useState("");
   const [text, setText] = useState("");
 
   return (
     <div className="post-form">
-      <div className="bg-primary">
-        <h3>Say Something...</h3>
+      <div className="bg-primary p">
+        <h3>Create a new post!</h3>
       </div>
       <form
         className="form"
         onSubmit={e => {
           e.preventDefault();
-          addPost({ text });
+          addPost({ title, text });
+          setTitle("");
           setText("");
         }}
       >
+        <input
+          type="text"
+          name="title"
+          placeholder="Add a title for your post"
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          required
+        />
         <textarea
           name="text"
           cols="30"
           rows="5"
-          placeholder="Create a post"
+          placeholder="Add text body (optional)"
           value={text}
           onChange={e => setText(e.target.value)}
-          required
         />
         <input type="submit" className="btn btn-dark" value="Submit" />
       </form>
