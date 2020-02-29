@@ -8,6 +8,3 @@ config/production.json
 # parcel
 .cache
 dist
-
-#personal reminders
-notes.txt

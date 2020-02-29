@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
-const User = require('../../models/User');
+const User = require('../models/User');
 
 // Public POST api/users
 // Register a user
@@ -39,7 +39,9 @@ router.post(
           res
             // Status Code 400: Bad Request
             .status(400)
-            .json({ errors: [{ msg: 'That email has already been taken' }] })
+            .json({
+              errors: [{ msg: 'That email has already been taken' }]
+            })
         );
       }
 

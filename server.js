@@ -1,17 +1,17 @@
-const express = require("express");
-const connectDB = require("./config/db");
-const helmet = require("helmet");
-const xss = require("xss-clean");
-const cors = require("cors");
+const express = require('express');
+const connectDB = require('./config/db');
+const helmet = require('helmet');
+const xss = require('xss-clean');
+const cors = require('cors');
 const app = express();
 
 // Setting up CORS
 const corsOptions = {
-  origin: "*",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
   preflightContinue: true,
   optionsSuccessStatus: 204,
-  exposedHeaders: "x-auth-token"
+  exposedHeaders: 'x-auth-token'
 };
 
 app.use(cors(corsOptions));
@@ -24,13 +24,13 @@ app.use(helmet());
 app.use(xss());
 
 // Initialize middleware
-app.use(express.json({ extended: false, limit: "10kb" }));
+app.use(express.json({ extended: false, limit: '10kb' }));
 
 // Routes
-app.use("/api/auth", require("./routes/api/auth"));
-app.use("/api/posts", require("./routes/api/posts"));
-app.use("/api/profiles", require("./routes/api/profiles"));
-app.use("/api/users", require("./routes/api/users"));
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/posts', require('./routes/posts'));
+app.use('/api/profiles', require('./routes/profiles'));
+app.use('/api/users', require('./routes/users'));
 
 const PORT = process.env.PORT || 5000;
 
