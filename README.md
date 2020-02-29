@@ -1,18 +1,17 @@
-# Project Title
+# vicdevs
 
-> Short blurb about what your project does.
+> Small social media site for developers in Victoria, BC
 
 <!-- Badges -->
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
+[![build status](https://img.shields.io/circleci/build/github/bryce-mcmath/vicdevs/master?label=circleci)](https://circleci.com/gh/bryce-mcmath/vicdevs)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-One or two short paragraph statements about your product and what it does.
+vicdevs.io is a responsive and fullstack CRUD application made help connect developers in Victoria. Registered users can create a profile with their skills, education, and work experience, create posts, view others' posts and profiles, comment on posts, and like posts and comments. Most of it is made with Parcel, MongoDB, express, Node.js, Sass, Redux, and modern React including custom hooks and reducers.
 
-<!-- Screenshot -->
+To learn more and see it in action, read further. Or visit it [(link here when live)]() eventually and join up!
 
-![Hover Text](https://upload.wikimedia.org/wikipedia/commons/5/57/Bootstrap-3.1.1-screenshot-jumbotron-example.png)
+**NOTE: If you want a profile pic, sign up with a Gravatar email.**
 
 ## Table of contents
 
@@ -20,16 +19,10 @@ One or two short paragraph statements about your product and what it does.
 - [Getting started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installing and running](#installing-and-running)
-- [Running the tests](#running-the-tests)
-  - [End to end tests](#end-to-end-test)
-  - [Coding style tests](#coding-style-tests)
-- [Deployment](#deployment)
+- [Running the Tests](#running-the-tests)
 - [Built with](#built-with)
 - [Contributing](#contributing)
-- [Versioning](#versioning)
-- [Release history](#release-history)
 - [Meta](#meta)
-- [License](#license)
 - [Known issues / bugs](#known-issues-/-bugs)
 - [Feature roadmap](#feature-roadmap)
   - [In the works](#in-the-works)
@@ -38,160 +31,94 @@ One or two short paragraph statements about your product and what it does.
 
 ## Usage
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+<!-- Gif -->
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+![vicdevs usage](https://raw.githubusercontent.com/bryce-mcmath/vicdevs/master/docs/demo.gif)
+
+The above gif demonstrate basic usage. For more screencaps and other documentation, please navigate to the /docs directory from the root of this repo.
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 If you don't have Nodejs and npm installed, install them from [here.](https://nodejs.org/en/)
-
-```
-Give examples
-```
 
 ### Installing and Running
 
-A step by step series of examples that tell you how to get a development env running
+First, clone this repository. Then install dependencies with `npm install` in both the root, and in /client.
 
-In the root directory:
+Second, create a free MongoDB Atlas database instance [here](https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/)
 
-```
-npm install
-```
+Third, get a GitHub client secret and id by registering an OAuth app [here](https://github.com/settings/developers)
 
-And finally:
+Lastly, add a default.json file in /config following the provided default.example.json file
 
-```
-npm run dev
-```
+#### Serving With Parcel and Node
 
-End with an example of getting some data out of the system or using it for a little demo
+Open two terminals, run the following in both the root and in /client:
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-Add the following section to your `package.json`:
-
-```json
-{
-  "scripts": {
-    "test": "jest"
-  }
-}
+```sh
+npm run start
 ```
 
-### End to end tests
+Navigate to the localhost port provided in the client terminal (likely :1234)
 
-Explain what these tests test and why
+## Running the Tests
 
-```
-Give an example
-```
+One day.
 
-### Coding style tests
+#### Running Unit and Integration Tests
 
-Explain what these tests test and why
+TBA
 
-```
-Give an example
-```
+#### Running End-to-End Tests
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+TBA
 
 ## Built with
 
-- [React](https://reactjs.org/) - Front-end framework
+- [React]() - Front-end framework
+- [axios](https://github.com/axios/axios) - Promise-based HTTP client
+- [Sass](https://sass-lang.com/) - CSS pre-compiler to make styling easier
 - [Nodejs](https://nodejs.org/en/) - Javascript runtime
 - [Express](https://expressjs.com/) - Framework used for API in Node
 - [PostgreSQL](https://www.postgresql.org/) - Open source object-relational database
+- [Heroku]() - For deployment and hosted database
+- [Circle CI]() - Continuous integration platform
+- [Parcel]() - Webpack but without the config
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-<!-- OR -->
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
+1. Fork it (<https://github.com/bryce-mcmath/scheduler/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`) or issue branch (`git checkout -b issue/brokenThing`)
+3. Commit your changes (`git commit -m 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-## Versioning
-
-[SemVer](http://semver.org/) is being used for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
-
-## Release history
-
-- 0.2.1
-  - CHANGE: Update docs (module code remains unchanged)
-- 0.2.0
-  - CHANGE: Remove `setDefaultXYZ()`
-  - ADD: Add `init()`
-- 0.1.1
-  - FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-- 0.1.0
-  - The first proper release
-  - CHANGE: Rename `foo()` to `bar()`
-- 0.0.1
-  - Work in progress
+5. Create a new PR
 
 ## Meta
 
-Your Name – [@YourTwitter](https://twitter.com/your_handle) – YourEmail@example.com
-
-Distributed under the XYZ license. See `LICENSE.md` for more information.
-
-[https://github.com/yourname](https://github.com/yourname)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Bryce McMath – [bryce-mcmath](https://github.com/bryce-mcmath) – bryce.j.mcmath@gmail.com
 
 ## Known issues / bugs
 
-- List of most prominent
-- issues or bugs
+- Bugs? What bugs?
 
-_To add an issue, start a new one [here.](https://github.com/youraccount/therepo/issues)_
+_To add an issue, start a new one [here.](https://github.com/bryce-mcmath/scheduler/issues)_
 
 ## Feature roadmap
 
 ### In the works
 
-- List features that are currently
-- being worked on here
+-
 
 ### Planned
 
-- List of features that are
-- intended to be added
+-
 
 _If you'd like to add a feature yourself, please see the [Contributing](#contributing) guidelines._
 
 ## Acknowledgements
 
-- Hat tip to the other readme templates I synthesized
-- Inspiration
-- etc
-
----
-
-<!-- Markdown link & img definitions -->
-
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+-
