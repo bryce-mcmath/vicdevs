@@ -33,7 +33,7 @@ To learn more and see it in action, read further. Or visit it [(link here when l
 
 <!-- Gif -->
 
-![vicdevs usage](https://raw.githubusercontent.com/bryce-mcmath/vicdevs/master/docs/demo.gif)
+![vicdevs](https://raw.githubusercontent.com/bryce-mcmath/vicdevs/master/docs/screenshot.PNG)
 
 The above gif demonstrate basic usage. For more screencaps and other documentation, please navigate to the /docs directory from the root of this repo.
 
