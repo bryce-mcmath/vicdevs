@@ -2,18 +2,15 @@
   "name": "vicdevs",
   "version": "0.1.0",
   "description": "A social network for software developers in Victoria, BC",
-  "main": "./server/index.js",
+  "main": "index.js",
   "scripts": {
-    "lerna-install": "npx lerna bootstrap",
-    "build": "npx lerna run build",
-    "start": "node ./server/index.js",
-    "test": "npx lerna run test"
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bryce-mcmath/vicdevs.git"
   },
-  "author": "Bryce McMath",
   "keywords": [
     "victoria",
     "software developers",
@@ -23,12 +20,27 @@
     "vic",
     "devs"
   ],
-  "license": "ISC",
+  "author": "Bryce McMath",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/bryce-mcmath/vicdevs/issues"
   },
   "homepage": "https://vicdevs.io",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "config": "^3.2.4",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "gravatar": "^1.8.0",
+    "helmet": "^3.21.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.10",
+    "rate-limiter-flexible": "^1.1.6",
+    "request": "^2.88.0",
+    "xss-clean": "^0.1.1"
+  },
   "devDependencies": {
-    "lerna": "^3.20.2"
+    "cors": "^2.8.5",
+    "nodemon": "^1.19.4"
   }
 }

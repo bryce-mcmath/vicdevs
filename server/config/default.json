@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://bryce:bryce@vicdevs-rbfyz.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "secrety",
+  "githubClientId": "b70332ea913e6a64cf2b",
+  "githubSecret": "8a622488c4ecbe2bb96f73d66dd47b733d46b0b2"
+}
