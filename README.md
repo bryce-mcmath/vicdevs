@@ -9,7 +9,7 @@
 
 vicdevs.io is a fullstack CRUD app made to help connect developers in Victoria. Registered users can create a profile with their skills, education, and work experience, create posts, view others' posts and profiles, comment on posts, and like posts and comments. Most of it is made with Node.js, express, MongoDB, Sass, Redux, and modern React including custom hooks and reducers.
 
-To learn more and see it in action, read further. Or visit it [(link here when live)]() eventually and join up!
+To learn more and see it in action, read further. Or visit it [(link here when live)](http://vicdevs.io) eventually and join up!
 
 **NOTE: If you want a profile pic, sign up with a Gravatar email.**
 
@@ -45,9 +45,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 If you don't have Nodejs and npm installed, install them from [here.](https://nodejs.org/en/)
 
-### Installing and Running
+### Installing and Setup
 
-First, clone this repository. Then install dependencies with `npm install` in both the root, and in /client.
+First, clone this repository. Then install dependencies with `npm i` in both the root and then `npm run lerna-install`.
 
 Second, create a free MongoDB Atlas database instance [here](https://docs.atlas.mongodb.com/tutorial/deploy-free-tier-cluster/)
 
@@ -55,15 +55,41 @@ Third, get a GitHub client secret and id by registering an OAuth app [here](http
 
 Lastly, add a default.json file in /config following the provided default.example.json file
 
-#### Serving With Parcel and Node
+## Available Scripts
 
-Open two terminals, run the following in both the root and in /client:
+### In the root
+
+Build the client and server:
+
+```sh
+npm run build
+```
+
+Start the server (renders static client files):
 
 ```sh
 npm run start
 ```
 
-Navigate to the localhost port provided in the client terminal (likely :1234)
+Hot reload server for development:
+
+```sh
+npm run dev
+```
+
+This will run both client and server tests when I have some:
+
+```sh
+npm run test
+```
+
+### In /client
+
+Hot reload server for development:
+
+```sh
+npm run serve
+```
 
 ## Running the Tests
 
@@ -84,10 +110,6 @@ TBA
 - [Sass](https://sass-lang.com/) - CSS pre-compiler to make styling easier
 - [Nodejs](https://nodejs.org/en/) - Javascript runtime
 - [Express](https://expressjs.com/) - Framework used for API in Node
-- [PostgreSQL](https://www.postgresql.org/) - Open source object-relational database
-- [Heroku]() - For deployment and hosted database
-- [Circle CI]() - Continuous integration platform
-- [Parcel]() - Webpack but without the config
 
 ## Contributing
 
@@ -111,14 +133,16 @@ _To add an issue, start a new one [here.](https://github.com/bryce-mcmath/schedu
 
 ### In the works
 
--
+- Responsiveness/restyle
+- Add comment liking UI
+- CI/CD setup
 
 ### Planned
 
--
+- Tests
 
 _If you'd like to add a feature yourself, please see the [Contributing](#contributing) guidelines._
 
 ## Acknowledgements
 
--
+- It does indeed look very bad rn but it works
