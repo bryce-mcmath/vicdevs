@@ -7,7 +7,7 @@
 [![build status](https://img.shields.io/circleci/build/github/bryce-mcmath/vicdevs/master?label=circleci)](https://circleci.com/gh/bryce-mcmath/vicdevs)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
-vicdevs.io is a responsive and fullstack CRUD application made help connect developers in Victoria. Registered users can create a profile with their skills, education, and work experience, create posts, view others' posts and profiles, comment on posts, and like posts and comments. Most of it is made with Parcel, MongoDB, express, Node.js, Sass, Redux, and modern React including custom hooks and reducers.
+vicdevs.io is a fullstack CRUD app made to help connect developers in Victoria. Registered users can create a profile with their skills, education, and work experience, create posts, view others' posts and profiles, comment on posts, and like posts and comments. Most of it is made with Node.js, express, MongoDB, Sass, Redux, and modern React including custom hooks and reducers.
 
 To learn more and see it in action, read further. Or visit it [(link here when live)]() eventually and join up!
 
