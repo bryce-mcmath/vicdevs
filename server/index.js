@@ -3,19 +3,7 @@ const path = require('path');
 const connectDB = require('./config/db');
 const helmet = require('helmet');
 const xss = require('xss-clean');
-// const cors = require('cors');
 const app = express();
-
-// Setting up CORS
-// const corsOptions = {
-// 	origin: '*',
-// 	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
-// 	preflightContinue: true,
-// 	optionsSuccessStatus: 204,
-// 	exposedHeaders: 'x-auth-token'
-// };
-
-// app.use(cors(corsOptions));
 
 // Connect to database
 connectDB();
