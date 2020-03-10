@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
+import Alert from '../layout/Alert';
 
 const EditProfile = ({
 	profile: { profile, loading },
@@ -72,6 +73,7 @@ const EditProfile = ({
 		<div className='bg'>
 			<div className='dark-overlay'>
 				<div className='container'>
+					<Alert />
 					<h1 className='large text-primary'>Edit Your Profile</h1>
 					<p className='lead'>
 						<i className='fas fa-user' /> Add some changes to your profile

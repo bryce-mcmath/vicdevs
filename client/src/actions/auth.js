@@ -9,7 +9,9 @@ import {
 	LOGIN_SUCCESS,
 	LOGIN_FAIL,
 	LOGOUT,
-	CLEAR_PROFILE
+	CLEAR_PROFILE,
+	ACCOUNT_DELETED,
+	PROFILE_ERROR
 } from './types';
 
 export const loadUser = () => async (dispatch) => {
@@ -98,4 +100,22 @@ export const logout = () => (dispatch) => {
 	dispatch({
 		type: LOGOUT
 	});
+};
+
+export const deleteAccount = () => async (dispatch) => {
+	try {
+		await axios.delete('/api/profiles');
+		setAuthToken(null);
+		dispatch(setAlert('Your account has been permanantly deleted'));
+		dispatch({ type: ACCOUNT_DELETED });
+		dispatch({ type: CLEAR_PROFILE });
+	} catch (error) {
+		dispatch({
+			type: PROFILE_ERROR,
+			payload: {
+				msg: error.response.statusText,
+				status: error.response.status
+			}
+		});
+	}
 };

@@ -7,6 +7,7 @@ import PostItem from '../posts/PostItem';
 import CommentForm from '../post/CommentForm';
 import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
+import Alert from '../layout/Alert';
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
 	useEffect(() => {
@@ -18,6 +19,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 		<div className='bg'>
 			<div className='dark-overlay'>
 				<div className='container'>
+					<Alert />
 					<Spinner />
 				</div>
 			</div>
@@ -26,6 +28,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
 		<div className='bg'>
 			<div className='dark-overlay'>
 				<div className='container'>
+					<Alert />
 					<Link to='/posts' className='btn'>
 						Back To Posts
 					</Link>
