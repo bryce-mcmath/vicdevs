@@ -3,19 +3,19 @@ const path = require('path');
 const connectDB = require('./config/db');
 const helmet = require('helmet');
 const xss = require('xss-clean');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 
 // Setting up CORS
-const corsOptions = {
-	origin: '*',
-	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
-	preflightContinue: true,
-	optionsSuccessStatus: 204,
-	exposedHeaders: 'x-auth-token'
-};
+// const corsOptions = {
+// 	origin: '*',
+// 	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS',
+// 	preflightContinue: true,
+// 	optionsSuccessStatus: 204,
+// 	exposedHeaders: 'x-auth-token'
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // Connect to database
 connectDB();
@@ -35,6 +35,6 @@ app.use('/api/posts', require('./routes/posts'));
 app.use('/api/profiles', require('./routes/profiles'));
 app.use('/api/users', require('./routes/users'));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8888;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

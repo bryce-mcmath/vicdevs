@@ -4,7 +4,7 @@
 
 <!-- Badges -->
 
-[![build status](https://img.shields.io/circleci/build/github/bryce-mcmath/vicdevs/master?label=circleci)](https://circleci.com/gh/bryce-mcmath/vicdevs)
+![build status](https://codebuild.us-east-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiZVhteE9GTjhvb2hJVS8zOUJ1VFZNTWJ3RnlqVGIrMzJBcTJlcVlLaStVU3VVekprTGRSV3R0RTg4TENVZVY3SDlNWkQ5TklwK0IxY01CQ0FxMXRrMmFNPSIsIml2UGFyYW1ldGVyU3BlYyI6InNiOXI1cFJsdWtQaHJLZGYiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 vicdevs.io is a fullstack CRUD app made to help connect developers in Victoria. Registered users can create a profile with their skills, education, and work experience, create posts, view others' posts and profiles, comment on posts, and like posts and comments. Most of it is made with Node.js, express, MongoDB, Sass, Redux, and modern React including custom hooks and reducers.
@@ -95,14 +95,6 @@ npm run serve
 
 One day.
 
-#### Running Unit and Integration Tests
-
-TBA
-
-#### Running End-to-End Tests
-
-TBA
-
 ## Built with
 
 - [React]() - Front-end framework
@@ -135,6 +127,7 @@ _To add an issue, start a new one [here.](https://github.com/bryce-mcmath/schedu
 
 - Responsiveness/restyle
 - Add comment liking UI
+- Switch likes to a toggle, rather than thumbs up + thumbs down
 - CI/CD setup
 
 ### Planned
