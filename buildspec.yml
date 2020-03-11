@@ -27,6 +27,10 @@ phases:
   build:
     commands:
       - npm run build
+  post_build:
+    commands:
+      - git archive -v -o vicdevs.zip --format=zip HEAD
+
   # test:
   #   commands:
   #     - npm run test
