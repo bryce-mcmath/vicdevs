@@ -31,9 +31,6 @@ phases:
   # test:
   #   commands:
   #     - npm run test
-  post_build:
-    commands:
-      - npm run start
 # reports:
 #   report-name-or-arn:
 #     files:
