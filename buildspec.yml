@@ -22,8 +22,7 @@ phases:
   install:
     commands:
       - npm i
-  pre_build:
-    commands:
+    finally:
       - npm run lerna-install
   build:
     commands:
