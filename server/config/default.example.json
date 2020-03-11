@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://user:pw@instance.mongodb.net/test?retryWrites=true&w=majority",
-  "jwtSecret": "someString",
-  "githubClientId": "YOUR_CLIENT_ID",
-  "githubSecret": "YOUR_CLIENT_SECRET"
-}

@@ -2,11 +2,17 @@
 node_modules
 
 # API keys, secrets, URIs
-config/default.json
-config/production.json
+# config/default.json
+production.json
+default.json
+default.example.json
+.env
 
 # build
 .cache
 dist
 build
 static
+
+# aws
+vicdevs.zip
