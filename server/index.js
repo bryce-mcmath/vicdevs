@@ -8,22 +8,24 @@ const fs = require('fs');
 
 fs.readdir(__dirname + '/../../../', function(err, items) {
 	for (let i = 0; i < items.length; i++) {
-		console.log(
-			'item:',
+		if (fs.statSync(__dirname + items[i]).isDirectory()) {
 			fs.readdir(__dirname + items[i], function(err, children) {
-				for (let j = 0; j < children.length; j++) {
-					console.log(
-						'item:',
+				if (fs.statSync(__dirname + item[i] + children[j]).isDirectory()) {
+					for (let j = 0; j < children.length; j++) {
 						fs.readdir(__dirname + items[i] + children[j], function(
 							err,
 							babies
 						) {
 							console.log('babies: ', babies);
-						})
-					);
+						});
+					}
+				} else {
+					console.log('File in parent: ', children[i]);
 				}
-			})
-		);
+			});
+		} else {
+			console.log('File in parent: ', items[i]);
+		}
 	}
 });
 
