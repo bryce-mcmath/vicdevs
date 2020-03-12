@@ -4,7 +4,7 @@
   "description": "A social network for software developers in Victoria, BC",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "echo \"goddamnit\"",
     "dev": "nodemon ./index.js"
   },
   "repository": {
