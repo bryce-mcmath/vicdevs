@@ -4,6 +4,15 @@ const connectDB = require('./config/db');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const app = express();
+const fs = require('fs');
+
+fs.readdir(__dirname, function(err, items) {
+	console.log('items: ', items);
+
+	for (const i = 0; i < items.length; i++) {
+		console.log('item:', items[i]);
+	}
+});
 
 // Connect to database
 connectDB();
