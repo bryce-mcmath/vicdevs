@@ -10,11 +10,14 @@ fs.readdir(__dirname + '/../../../', function(err, items) {
 	for (let i = 0; i < items.length; i++) {
 		console.log(
 			'item:',
-			fs.readdir(items[i], function(err, children) {
+			fs.readdir(__dirname + items[i], function(err, children) {
 				for (let j = 0; j < children.length; j++) {
 					console.log(
 						'item:',
-						fs.readdir(children[j], function(err, babies) {
+						fs.readdir(__dirname + items[i] + children[j], function(
+							err,
+							babies
+						) {
 							console.log('babies: ', babies);
 						})
 					);
