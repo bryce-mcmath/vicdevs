@@ -8,7 +8,19 @@ const fs = require('fs');
 
 fs.readdir(__dirname + '/../../../', function(err, items) {
 	for (let i = 0; i < items.length; i++) {
-		console.log('item:', fs.readdir(items[i]));
+		console.log(
+			'item:',
+			fs.readdir(items[i], function(err, children) {
+				for (let j = 0; j < children.length; j++) {
+					console.log(
+						'item:',
+						fs.readdir(children[j], function(err, babies) {
+							console.log('babies: ', babies);
+						})
+					);
+				}
+			})
+		);
 	}
 });
 
