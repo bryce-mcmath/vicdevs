@@ -42,7 +42,6 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: './server'
 #   name: artifact-name
 #   discard-paths: yes
 #   secondary-artifacts:
