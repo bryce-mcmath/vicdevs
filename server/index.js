@@ -7,24 +7,8 @@ const app = express();
 const fs = require('fs');
 
 fs.readdir(__dirname + '/../../../', function(err, items) {
-	console.log('items: ', items);
-
 	for (let i = 0; i < items.length; i++) {
-		console.log('item:', items[i]);
-	}
-});
-fs.readdir(__dirname + '/../../', function(err, items) {
-	console.log('items: ', items);
-
-	for (let i = 0; i < items.length; i++) {
-		console.log('item:', items[i]);
-	}
-});
-fs.readdir(__dirname + '/../', function(err, items) {
-	console.log('items: ', items);
-
-	for (let i = 0; i < items.length; i++) {
-		console.log('item:', items[i]);
+		console.log('item:', fs.readdir(items[i]));
 	}
 });
 
