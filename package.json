@@ -6,6 +6,7 @@
   "scripts": {
     "lerna-install": "npx lerna bootstrap",
     "build": "npx lerna run build",
+    "postbuild": "npx lerna run postbuild",
     "start": "node ./server/index.js",
     "dev": "nodemon ./server/index.js",
     "test": "npx lerna run test"

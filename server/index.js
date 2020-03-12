@@ -4,34 +4,6 @@ const connectDB = require('./config/db');
 const helmet = require('helmet');
 const xss = require('xss-clean');
 const app = express();
-const fs = require('fs');
-const parentFolder = __dirname + '/../../../';
-fs.readdir(parentFolder, function(err, items) {
-	for (let i = 0; i < items.length; i++) {
-		if (fs.statSync(parentFolder + '/' + items[i]).isDirectory()) {
-			fs.readdir(parentFolder + '/' + items[i], function(err, children) {
-				for (let j = 0; j < children.length; j++) {
-					if (
-						fs
-							.statSync(parentFolder + '/' + items[i] + '/' + children[j])
-							.isDirectory()
-					) {
-						fs.readdir(
-							parentFolder + '/' + items[i] + '/' + children[j],
-							function(err, babies) {
-								console.log('babies: ', babies);
-							}
-						);
-					} else {
-						console.log('File in parent: ', children[j]);
-					}
-				}
-			});
-		} else {
-			console.log('File in parent: ', items[i]);
-		}
-	}
-});
 
 // Connect to database
 connectDB();
@@ -44,7 +16,6 @@ app.use(express.static('./server/static'));
 
 // Routes
 app.get('/', (req, res) => {
-	console.log('DIR: ', __dirname + '/static/build/index.html');
 	res.sendFile(path.join(__dirname + '/static/build/index.html'));
 });
 app.use('/api/auth', require('./routes/auth'));
