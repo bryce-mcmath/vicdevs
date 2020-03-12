@@ -12,11 +12,11 @@ connectDB();
 app.use(helmet());
 app.use(xss());
 app.use(express.json({ extended: false, limit: '10kb' }));
-app.use(express.static('./static/build'));
+app.use(express.static('static'));
 
 // Routes
 app.get('/', (req, res) => {
-	res.sendFile('index.html');
+	res.sendFile('./build/index.html', { root: './static' });
 });
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
