@@ -16,7 +16,8 @@ app.use(express.static('static'));
 
 // Routes
 app.get('/', (req, res) => {
-	res.sendFile('./build/index.html', { root: './static' });
+	console.log('DIR: ', __dirname + '/static/build/index.html');
+	res.sendFile(path.join(__dirname + '/static/build/index.html'));
 });
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
