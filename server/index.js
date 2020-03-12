@@ -12,7 +12,7 @@ fs.readdir(parentFolder, function(err, items) {
 			fs.readdir(parentFolder + '/' + items[i], function(err, children) {
 				if (
 					fs
-						.statSync(parentFolder + '/' + item[i] + '/' + children[j])
+						.statSync(parentFolder + '/' + items[i] + '/' + children[j])
 						.isDirectory()
 				) {
 					for (let j = 0; j < children.length; j++) {
@@ -24,7 +24,7 @@ fs.readdir(parentFolder, function(err, items) {
 						);
 					}
 				} else {
-					console.log('File in parent: ', children[i]);
+					console.log('File in parent: ', children[j]);
 				}
 			});
 		} else {
