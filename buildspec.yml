@@ -42,7 +42,7 @@ phases:
 artifacts:
   files:
     - '**/*'
-  base-directory: vicdevs
+  base-directory: 'vicdevs'
 #   name: artifact-name
 #   discard-paths: yes
 #   secondary-artifacts:
