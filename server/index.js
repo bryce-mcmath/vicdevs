@@ -10,21 +10,21 @@ fs.readdir(parentFolder, function(err, items) {
 	for (let i = 0; i < items.length; i++) {
 		if (fs.statSync(parentFolder + '/' + items[i]).isDirectory()) {
 			fs.readdir(parentFolder + '/' + items[i], function(err, children) {
-				if (
-					fs
-						.statSync(parentFolder + '/' + items[i] + '/' + children[j])
-						.isDirectory()
-				) {
-					for (let j = 0; j < children.length; j++) {
+				for (let j = 0; j < children.length; j++) {
+					if (
+						fs
+							.statSync(parentFolder + '/' + items[i] + '/' + children[j])
+							.isDirectory()
+					) {
 						fs.readdir(
 							parentFolder + '/' + items[i] + '/' + children[j],
 							function(err, babies) {
 								console.log('babies: ', babies);
 							}
 						);
+					} else {
+						console.log('File in parent: ', children[j]);
 					}
-				} else {
-					console.log('File in parent: ', children[j]);
 				}
 			});
 		} else {
