@@ -5,23 +5,23 @@ const helmet = require('helmet');
 const xss = require('xss-clean');
 const app = express();
 const fs = require('fs');
-
-fs.readdir(__dirname + '/../../../', function(err, items) {
+const parentFolder = __dirname + '/../../../';
+fs.readdir(parentFolder, function(err, items) {
 	for (let i = 0; i < items.length; i++) {
-		if (fs.statSync(__dirname + '/' + items[i]).isDirectory()) {
-			fs.readdir(__dirname + '/' + items[i], function(err, children) {
+		if (fs.statSync(parentFolder + '/' + items[i]).isDirectory()) {
+			fs.readdir(parentFolder + '/' + items[i], function(err, children) {
 				if (
 					fs
-						.statSync(__dirname + '/' + item[i] + '/' + children[j])
+						.statSync(parentFolder + '/' + item[i] + '/' + children[j])
 						.isDirectory()
 				) {
 					for (let j = 0; j < children.length; j++) {
-						fs.readdir(__dirname + '/' + items[i] + '/' + children[j], function(
-							err,
-							babies
-						) {
-							console.log('babies: ', babies);
-						});
+						fs.readdir(
+							parentFolder + '/' + items[i] + '/' + children[j],
+							function(err, babies) {
+								console.log('babies: ', babies);
+							}
+						);
 					}
 				} else {
 					console.log('File in parent: ', children[i]);
