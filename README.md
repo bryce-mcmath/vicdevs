@@ -9,7 +9,7 @@
 
 vicdevs.io is a fullstack CRUD app made to help connect developers in Victoria. Registered users can create a profile with their skills, education, and work experience, create posts, view others' posts and profiles, comment on posts, and like posts and comments. Most of it is made with Node.js, express, MongoDB, Sass, Redux, and modern React including custom hooks and reducers.
 
-To learn more and see it in action, read further. Or visit it [(link here when live)](http://vicdevs.io) eventually and join up!
+To learn more and see it in action, read further. Or visit it [(live)](http://vicdevs-env.eba-pyqd2qvb.us-east-2.elasticbeanstalk.com/)
 
 **NOTE: If you want a profile pic, sign up with a Gravatar email.**
 
