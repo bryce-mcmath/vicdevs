@@ -13,6 +13,7 @@ const connectDB = async () => {
 			useFindAndModify: false
 		});
 		console.log('MongoDB connected...');
+		console.log(__dirname);
 	} catch (error) {
 		console.error(error.message);
 		process.exit(1);
