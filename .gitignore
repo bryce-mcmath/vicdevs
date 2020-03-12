@@ -12,7 +12,7 @@ default.example.json
 .cache
 dist
 build
-static
+static/**
 
 # aws
 vicdevs.zip
