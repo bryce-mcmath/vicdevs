@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "echo \"goddamnit\"",
-    "dev": "nodemon ./index.js"
+    "dev": "nodemon ./index.js",
+    "build": "rm -rf ./static"
   },
   "repository": {
     "type": "git",
