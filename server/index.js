@@ -12,7 +12,7 @@ connectDB();
 app.use(helmet());
 app.use(xss());
 app.use(express.json({ extended: false, limit: '10kb' }));
-app.use(express.static('static'));
+app.use(express.static('./server/static'));
 
 // Routes
 app.get('/', (req, res) => {
