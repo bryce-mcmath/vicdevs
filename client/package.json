@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "copyfiles -a \"./build/**/*\" ../server/static",
+    "postbuild": "copyfiles -a \"./build/**/*\" ../server/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
