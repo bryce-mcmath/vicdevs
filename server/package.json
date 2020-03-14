@@ -6,7 +6,7 @@
   "scripts": {
     "start": "echo \"goddamnit\"",
     "dev": "nodemon ./index.js",
-    "build": "rm -rf ./static"
+    "build": "rm -rf ./build"
   },
   "repository": {
     "type": "git",

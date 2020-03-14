@@ -29,7 +29,7 @@ phases:
       - npm run build
   post_build:
     commands:
-      - npm run postbuild
+      - npm run post-build
   # test:
   #   commands:
   #     - npm run test
