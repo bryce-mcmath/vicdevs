@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/bryce-mcmath/vicdevs/issues"
   },
-  "homepage": "https://vicdevs.io",
+  "homepage": "https://vicdevs.ca",
   "devDependencies": {
     "copyfiles": "^2.2.0",
     "lerna": "^3.20.2",

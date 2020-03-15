@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/bryce-mcmath/vicdevs/issues"
   },
-  "homepage": "https://vicdevs.io",
+  "homepage": "https://vicdevs.ca",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.0",
