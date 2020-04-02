@@ -117,8 +117,6 @@ Bryce McMath – [bryce-mcmath](https://github.com/bryce-mcmath) – bryce.j.mcm
 
 ## Known issues / bugs
 
-- Bugs? What bugs?
-
 _To add an issue, start a new one [here.](https://github.com/bryce-mcmath/scheduler/issues)_
 
 ## Feature roadmap
@@ -128,7 +126,6 @@ _To add an issue, start a new one [here.](https://github.com/bryce-mcmath/schedu
 - Responsiveness/restyle
 - Add comment liking UI
 - Switch likes to a toggle, rather than thumbs up + thumbs down
-- CI/CD setup
 
 ### Planned
 
