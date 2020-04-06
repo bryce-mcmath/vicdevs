@@ -53,7 +53,7 @@ Second, create a free MongoDB Atlas database instance [here](https://docs.atlas.
 
 Third, get a GitHub client secret and id by registering an OAuth app [here](https://github.com/settings/developers)
 
-Lastly, add a default.json file in /config following the provided default.example.json file
+Lastly, add a .env file in following the provided .env.example file
 
 ## Available Scripts
 
@@ -117,8 +117,6 @@ Bryce McMath – [bryce-mcmath](https://github.com/bryce-mcmath) – bryce.j.mcm
 
 ## Known issues / bugs
 
-- Bugs? What bugs?
-
 _To add an issue, start a new one [here.](https://github.com/bryce-mcmath/scheduler/issues)_
 
 ## Feature roadmap
@@ -128,7 +126,6 @@ _To add an issue, start a new one [here.](https://github.com/bryce-mcmath/schedu
 - Responsiveness/restyle
 - Add comment liking UI
 - Switch likes to a toggle, rather than thumbs up + thumbs down
-- CI/CD setup
 
 ### Planned
 
