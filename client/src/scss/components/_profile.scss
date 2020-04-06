@@ -78,6 +78,11 @@
 
 .profile-github .repo {
   display: flex;
+
+
+  .badge {
+    padding: 0.5vh 0.5vw;
+  }
 }
 
 .profile-github .repo > div:first-child {

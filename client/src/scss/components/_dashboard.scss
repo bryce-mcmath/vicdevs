@@ -14,4 +14,15 @@
     width: 100%;
     margin-bottom: 0.2rem;
   }
+
+  .table th,
+.table td {
+  padding: 1vh 1vw;
+  text-align: left;
+  font-size: 3vw;
+}
+
+.table th {
+  background: $light;
+}
 }

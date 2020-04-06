@@ -28,10 +28,10 @@ const AddExperience = ({ addExperience, history }) => {
 			<div className='dark-overlay'>
 				<div className='container'>
 					<Alert />
-					<h1 className='large text-primary'>Add An Experience</h1>
+					<h1 className='large text-primary'>Add Experience</h1>
 					<p className='lead'>
-						<i className='fas fa-code-branch' /> Add any developer/programming
-						positions that you have had in the past
+						<i className='fas fa-code-branch' /> Add tech positions you've had
+						in the past
 					</p>
 					<small>* = required field</small>
 					<form

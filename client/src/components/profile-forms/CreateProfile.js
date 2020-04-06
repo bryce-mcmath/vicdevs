@@ -64,7 +64,7 @@ const CreateProfile = ({ createProfile, history }) => {
 								value={status}
 								onChange={(e) => onChange(e)}
 							>
-								<option value='0'>* Select Professional Status</option>
+								<option value='0'>* Professional Status</option>
 								<option value='Developer'>Developer</option>
 								<option value='Junior Developer'>Junior Developer</option>
 								<option value='Senior Developer'>Senior Developer</option>
@@ -75,7 +75,7 @@ const CreateProfile = ({ createProfile, history }) => {
 								<option value='Other'>Other</option>
 							</select>
 							<small className='form-text'>
-								Give us an idea of where you are at in your career
+								Give us an idea of where you're at in your career
 							</small>
 						</div>
 						<div className='form-group'>
